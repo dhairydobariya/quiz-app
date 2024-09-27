@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "f5153f8b-f364-4473-8083-4d9bd5216876",
+		"name": "quize-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31742901"
+	},
+	"item": [
+		{
+			"name": "user Routes",
+			"item": [
+				{
+					"name": "Post Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"dobariya\",\r\n    \"email\":\"dobariya@gmail.com\",\r\n    \"password\":\"1234\",\r\n    \"role\":\"admin\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"dobariya\",\r\n    \"password\":\"1234\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "Add Quizes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"General Knowledge Quiz\",\r\n  \"description\": \"A basic general knowledge quiz.\",\r\n  \"questions\": [\r\n    {\r\n      \"questionText\": \"What is the capital of France?\",\r\n      \"answerChoices\": [\"Berlin\", \"Madrid\", \"Paris\", \"Rome\"],\r\n      \"correctAnswer\": \"Paris\"\r\n    },\r\n    {\r\n      \"questionText\": \"Who wrote 'To Kill a Mockingbird'?\",\r\n      \"answerChoices\": [\"Mark Twain\", \"Harper Lee\", \"J.K. Rowling\", \"Ernest Hemingway\"],\r\n      \"correctAnswer\": \"Harper Lee\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/quiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk upload of quiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/sample_quiz_template.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/quiz/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"quiz",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/download-sample-csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"download-sample-csv"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quizes Routes for user",
+			"item": [
+				{
+					"name": "Quize submit ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answers\": {\r\n        \"0\": \"Paris\",\r\n        \"1\": \"Option 1\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/quiz/66f6e990154b6e3063d9dd03/submit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"quiz",
+								"66f6e990154b6e3063d9dd03",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quizes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/quiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
